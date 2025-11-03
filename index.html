@@ -1,147 +1,125 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Binary Club — Aprenda e Lucre</title>
-  <script src="https://cdn.tailwindcss.com"></script>
-  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&display=swap" rel="stylesheet">
-  <style>
-    html { scroll-behavior: smooth; }
-    body { font-family: 'Montserrat', sans-serif; }
-  </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Binary Club</title>
+<style>
+  /* === Reset básico === */
+  * {margin:0; padding:0; box-sizing:border-box; font-family: Arial, sans-serif;}
+  body {background:#0b0b0f; color:#fff; line-height:1.6;}
+  a {color:inherit; text-decoration:none;}
+  button {cursor:pointer;}
+  section {padding:60px 20px;}
+  h2 {text-align:center; margin-bottom:40px; font-size:2.5rem; color:#00FFFF;}
+  .container {max-width:1200px; margin:0 auto;}
+  
+  /* === Botões === */
+  .btn {background:#00FFFF; color:#000; padding:15px 25px; font-weight:bold; border:none; border-radius:8px; transition:0.3s;}
+  .btn:hover {background:#00cccc;}
+
+  /* === Sessão aulas grátis === */
+  .free-classes iframe {width:100%; max-width:360px; height:215px; margin:10px; border-radius:10px;}
+  .free-classes .videos {display:flex; flex-wrap:wrap; justify-content:center; gap:20px;}
+
+  /* === Sessão VIP WhatsApp === */
+  .vip-whatsapp {background:#111; text-align:center; border-radius:15px; padding:40px 20px; margin:40px 0;}
+  .vip-whatsapp p {font-size:1.3rem; margin:20px 0;}
+
+  /* === Sessão Estratégia OTC e Mentoria === */
+  .products {display:flex; flex-wrap:wrap; justify-content:center; gap:40px;}
+  .product-card {background:#111; padding:30px; border-radius:15px; width:300px; text-align:center;}
+  .product-card h3 {color:#00FFFF; margin-bottom:15px;}
+  .product-card p {margin-bottom:20px;}
+
+  /* === Sessão fluxo de caixa === */
+  .cashflow {background:#111; border-radius:15px; padding:40px 20px; margin:40px 0;}
+  .cashflow label {display:block; margin:15px 0 5px;}
+  .cashflow input {width:100%; padding:10px; border-radius:8px; border:none;}
+
+  /* === Sessão clientes === */
+  .clients {text-align:center;}
+  .clients .media {display:flex; flex-wrap:wrap; justify-content:center; gap:20px;}
+  .clients video, .clients img {width:300px; border-radius:15px;}
+
+  /* === Responsivo === */
+  @media (max-width:768px){
+    .products {flex-direction:column; align-items:center;}
+    .free-classes .videos {flex-direction:column; align-items:center;}
+    .clients .media {flex-direction:column; align-items:center;}
+  }
+</style>
 </head>
-<body class="bg-gradient-to-b from-gray-900 via-black to-gray-950 text-white">
+<body>
 
-  <!-- Hero -->
-  <section id="hero" class="relative h-[60vh] md:h-[70vh] flex flex-col items-center justify-center text-center px-6"
-           style="background-image: linear-gradient(to bottom, rgba(0,0,0,0) 70%, #000 100%), url('assets/imagem-oficial.jpg');
-                  background-size: cover;
-                  background-position: center;
-                  background-repeat: no-repeat;">
-    <h1 class="text-5xl md:text-6xl font-bold text-cyan-400 mb-4 animate-pulse">Binary Club</h1>
-    <p class="text-lg md:text-2xl max-w-3xl text-gray-300 mb-6">
-      Acesso às melhores estratégias em OTC e aulas gratuitas de opções binárias para você começar a lucrar.
-    </p>
-    <div class="flex gap-4">
-      <a href="#aulas" class="px-8 py-3 bg-cyan-500 hover:bg-cyan-600 text-black font-bold rounded-full transition-all shadow-xl">Aulas Grátis</a>
-      <a href="#inscricao" class="px-8 py-3 bg-yellow-500 hover:bg-yellow-600 text-black font-bold rounded-full transition-all shadow-xl">Quero a Estratégia</a>
-    </div>
-  </section>
+<!-- === Header === -->
+<section style="text-align:center; background:#000 url('assets/bg-trader.jpg') no-repeat center/cover; padding:80px 20px;">
+  <h1 style="font-size:3rem; color:#00FFFF;">Binary Club</h1>
+  <p style="font-size:1.5rem; margin-top:20px;">Aprenda a operar como profissional e maximize seus resultados</p>
+</section>
 
-  <!-- Aulas Gratuitas -->
-  <section id="aulas" class="py-20 px-6 bg-black/50 backdrop-blur-lg">
-    <div class="max-w-6xl mx-auto text-center">
-      <h2 class="text-4xl font-bold text-cyan-400 mb-12">Aulas Gratuitas do Binary Club</h2>
-      <div class="grid md:grid-cols-2 gap-8">
-        <!-- Video 1 -->
-        <div class="bg-black/60 p-4 rounded-2xl shadow-lg">
-          <iframe class="w-full h-64 rounded-lg" src="https://www.youtube.com/embed/SEU_VIDEO_1" title="Aula 1" frameborder="0" allowfullscreen></iframe>
-          <h3 class="text-xl font-bold mt-4">Aula 1: Introdução ao OTC</h3>
-        </div>
-        <!-- Video 2 -->
-        <div class="bg-black/60 p-4 rounded-2xl shadow-lg">
-          <iframe class="w-full h-64 rounded-lg" src="https://www.youtube.com/embed/SEU_VIDEO_2" title="Aula 2" frameborder="0" allowfullscreen></iframe>
-          <h3 class="text-xl font-bold mt-4">Aula 2: Estratégia Básica de Lucro</h3>
-        </div>
-      </div>
-    </div>
-  </section>
+<!-- === Sessão Aulas Grátis === -->
+<section class="free-classes">
+  <h2>Aulas Importantes de Graça</h2>
+  <div class="container videos">
+    <iframe src="https://www.youtube.com/embed/VIDEO_ID_1" title="Aula 1" frameborder="0" allowfullscreen></iframe>
+    <iframe src="https://www.youtube.com/embed/VIDEO_ID_2" title="Aula 2" frameborder="0" allowfullscreen></iframe>
+    <iframe src="https://www.youtube.com/embed/VIDEO_ID_3" title="Aula 3" frameborder="0" allowfullscreen></iframe>
+  </div>
+</section>
 
-  <!-- Benefícios do Produto -->
-  <section class="py-20 px-6 bg-black/50 backdrop-blur-lg">
-    <div class="max-w-5xl mx-auto grid md:grid-cols-3 gap-10 text-center">
-      <div>
-        <h3 class="text-xl text-cyan-400 font-semibold mb-2">Fácil de Aplicar</h3>
-        <p class="text-gray-300">Mesmo sem experiência, você consegue operar e lucrar usando nossa estratégia.</p>
-      </div>
-      <div>
-        <h3 class="text-xl text-cyan-400 font-semibold mb-2">Vantagem Desleal</h3>
-        <p class="text-gray-300">Enquanto outros tentam adivinhar, você entra com precisão e sai no lucro.</p>
-      </div>
-      <div>
-        <h3 class="text-xl text-cyan-400 font-semibold mb-2">Consistência</h3>
-        <p class="text-gray-300">Use a estratégia em diferentes ativos, garantindo lucros consistentes.</p>
-      </div>
-    </div>
-  </section>
+<!-- === Sessão Grupo VIP WhatsApp === -->
+<section class="vip-whatsapp">
+  <h2>Grupo VIP no WhatsApp</h2>
+  <p>Mensalidade de apenas <strong>R$ 99,99</strong> por mês. Lives todos os dias, mais barato que um personal trainer!</p>
+  <a href="https://wa.me/SEUNUMERO" target="_blank" class="btn">Quero Entrar no Grupo VIP</a>
+</section>
 
-  <!-- Oferta Estratégia em OTC -->
-  <section id="inscricao" class="py-20 px-6 bg-gradient-to-t from-black via-gray-900 to-black backdrop-blur-sm">
-    <div class="max-w-4xl mx-auto text-center text-white">
-      <h2 class="text-4xl font-extrabold text-cyan-400 mb-4">🔥 Estratégia em OTC 🔥</h2>
-      <p class="text-xl text-gray-300 mb-6">Aprenda a estratégia que separa você dos grandes players!</p>
+<!-- === Sessão Estratégia OTC e Mentoria === -->
+<section class="products">
+  <div class="product-card">
+    <h3>Estratégia em OTC</h3>
+    <p>Aprenda a operar OTC com nossa estratégia exclusiva.</p>
+    <p><strong>R$ 297</strong></p>
+    <a href="https://wa.me/SEUNUMERO?text=Quero+comprar+a+estratégia+OTC" class="btn">Comprar Estratégia</a>
+  </div>
+  <div class="product-card">
+    <h3>Mentoria 1x1</h3>
+    <p>Acompanhamento personalizado e direto comigo.</p>
+    <p><strong>R$ 789</strong></p>
+    <a href="https://wa.me/SEUNUMERO?text=Quero+comprar+Mentoria+1x1" class="btn">Comprar Mentoria 1x1</a>
+  </div>
+</section>
 
-      <h3 class="text-5xl font-extrabold text-cyan-400 mb-6 animate-pulse drop-shadow-lg">⚡ Apenas R$297 ⚡</h3>
-      <a href="https://pay.kiwify.com.br/LNlQvJs" target="_blank" class="inline-block px-10 py-4 bg-gradient-to-r from-cyan-400 to-cyan-600 text-black font-bold rounded-full text-xl hover:scale-105 transition-transform duration-300 shadow-lg animate-pulse">
-        QUERO APRENDER AGORA
-      </a>
-    </div>
-  </section>
+<!-- === Sessão Fluxo de Caixa === -->
+<section class="cashflow">
+  <h2>Fluxo de Caixa Pessoal</h2>
+  <div class="container">
+    <label>Ganhos do dia:</label>
+    <input type="number" placeholder="R$ 0,00">
+    <label>Perdas do dia:</label>
+    <input type="number" placeholder="R$ 0,00">
+    <label>Stop:</label>
+    <input type="number" placeholder="R$ 0,00">
+    <label>Orçamento do dia:</label>
+    <input type="number" placeholder="R$ 0,00">
+    <label>Orçamento da semana:</label>
+    <input type="number" placeholder="R$ 0,00">
+    <label>Orçamento do mês:</label>
+    <input type="number" placeholder="R$ 0,00">
+  </div>
+</section>
 
-  <!-- Grupo do WhatsApp -->
-  <section class="py-20 px-6 bg-black/60 backdrop-blur-lg">
-    <div class="max-w-4xl mx-auto text-center text-white">
-      <h2 class="text-4xl font-bold text-yellow-400 mb-6">💬 Grupo VIP do Binary Club</h2>
-      <p class="text-xl text-gray-300 mb-6">Participe das lives diárias comigo, operando juntos e aprendendo estratégias que realmente funcionam.</p>
-      <p class="text-2xl font-bold text-white mb-6">Por apenas <span class="text-yellow-400">R$99,99/mês</span> — menos que um personal trainer!</p>
-      <a href="https://wa.me/5522997301385?text=Quero%20entrar%20no%20grupo%20VIP%20do%20Binary%20Club" target="_blank" class="inline-block px-10 py-4 bg-yellow-500 hover:bg-yellow-600 text-black font-bold rounded-full text-xl shadow-lg animate-pulse">
-        ENTRAR NO GRUPO VIP AGORA
-      </a>
-    </div>
-  </section>
-
-  <!-- Prints / Resultados de Alunos -->
-  <section class="py-20 px-6 bg-black/50 backdrop-blur-lg">
-    <div class="max-w-6xl mx-auto text-center">
-      <h2 class="text-4xl font-bold text-cyan-400 mb-12">Resultados Reais de Alunos</h2>
-      <p class="text-gray-300 mb-10">Veja como quem aplicou a estratégia em OTC e participou do grupo VIP está lucrando diariamente.</p>
-
-      <div class="grid md:grid-cols-3 gap-8">
-        <!-- Print 1 -->
-        <div class="bg-black/60 p-4 rounded-2xl shadow-lg">
-          <img src="assets/print1.jpg" alt="Resultado Aluno 1" class="rounded-lg mb-4 object-cover w-full h-64">
-          <p class="text-gray-300 font-semibold">“Lucro consistente todos os dias!”</p>
-        </div>
-
-        <!-- Print 2 -->
-        <div class="bg-black/60 p-4 rounded-2xl shadow-lg">
-          <img src="assets/print2.jpg" alt="Resultado Aluno 2" class="rounded-lg mb-4 object-cover w-full h-64">
-          <p class="text-gray-300 font-semibold">“Antes eu operava no escuro, agora sei exatamente onde entrar.”</p>
-        </div>
-
-        <!-- Print 3 -->
-        <div class="bg-black/60 p-4 rounded-2xl shadow-lg">
-          <img src="assets/print3.jpg" alt="Resultado Aluno 3" class="rounded-lg mb-4 object-cover w-full h-64">
-          <p class="text-gray-300 font-semibold">“As lives do grupo VIP mudaram meu jeito de operar.”</p>
-        </div>
-      </div>
-
-      <!-- Botão chamativo -->
-      <div class="mt-12">
-        <a href="https://wa.me/5522997301385?text=Quero%20entrar%20no%20grupo%20VIP%20do%20Binary%20Club" target="_blank"
-           class="inline-block px-10 py-4 bg-yellow-500 hover:bg-yellow-600 text-black font-bold rounded-full text-xl shadow-lg animate-pulse">
-          ENTRAR NO GRUPO VIP AGORA
-        </a>
-      </div>
-    </div>
-  </section>
-
-  <!-- Mentor -->
-  <section class="py-20 px-6 bg-black/70 backdrop-blur-lg">
-    <div class="max-w-3xl mx-auto text-center text-white">
-      <img src="assets/suafoto.jpg" alt="Foto do Mentor" class="w-32 h-32 rounded-full mx-auto mb-6 object-cover shadow-lg">
-      <h2 class="text-3xl font-bold text-cyan-400 mb-4">Arthur Martins</h2>
-      <p class="text-gray-300 mb-4">Especialista em opções binárias e OTC, faturando 7 dígitos online.</p>
-      <p class="text-sm text-gray-400">+1.400 alunos transformados • +10k inscritos no YouTube • +20k seguidores no Instagram</p>
-    </div>
-  </section>
-
-  <!-- Footer -->
-  <footer class="py-10 px-6 text-center text-sm text-gray-500 bg-black/60 backdrop-blur">
-    <p>Política de Privacidade | Termos de Uso</p>
-    <p>© Binary Club – Todos os Direitos Reservados</p>
-  </footer>
+<!-- === Sessão Vídeos e Fotos de Clientes === -->
+<section class="clients">
+  <h2>Resultados de Nossos Clientes</h2>
+  <div class="media container">
+    <video src="assets/video_cliente1.mp4" controls></video>
+    <video src="assets/video_cliente2.mp4" controls></video>
+    <img src="assets/foto_cliente1.jpg" alt="Cliente 1">
+    <img src="assets/foto_cliente2.jpg" alt="Cliente 2">
+  </div>
+</section>
 
 </body>
 </html>
