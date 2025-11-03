@@ -1,0 +1,304 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Binaryclub — Login / Registrar</title>
+<style>
+:root{
+  --accent:#00FFFF;
+  --muted:#bfbfbf;
+  --whatsapp:#25D366;
+}
+
+*{box-sizing:border-box;font-family:Inter,system-ui,Arial,sans-serif;margin:0;padding:0;}
+
+body{
+  min-height:100vh;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  color:#fff;
+  padding:20px;
+  position:relative;
+  overflow:hidden;
+  background:#0b0b0f url('https://images.unsplash.com/photo-1598514982291-6cce0b2fa1cb?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80') center/cover no-repeat;
+}
+
+/* Canvas de fundo */
+#bgCanvas{
+  position:fixed;
+  top:0; left:0;
+  width:100%; height:100%;
+  z-index:0;
+  pointer-events:none;
+}
+
+/* Card login */
+.wrap{
+  width:100%;
+  max-width:420px;
+  position:relative;
+  z-index:1;
+}
+
+.card{
+  background:rgba(15,15,20,0.85);
+  padding:30px 25px;
+  border-radius:16px;
+  border:1px solid rgba(0,255,255,0.2);
+  backdrop-filter: blur(10px);
+  transition:0.3s;
+}
+
+/* Removido efeito neon do hover */
+.card:hover{
+  box-shadow:none;
+}
+
+h1{margin:0 0 8px;font-size:1.6rem}
+p.small{margin:0;color:var(--muted);font-size:0.9rem}
+
+label{display:block;margin-top:12px;font-size:0.9rem;color:var(--muted)}
+input[type="text"],input[type="password"]{
+  width:100%;
+  padding:12px;
+  margin-top:6px;
+  border-radius:8px;
+  border:1px solid rgba(255,255,255,0.06);
+  background:rgba(255,255,255,0.05);
+  color:#fff;
+}
+input:focus{border-color:var(--accent);outline:none;background:rgba(255,255,255,0.1)}
+
+button{
+  margin-top:16px;
+  width:100%;
+  padding:12px;
+  border-radius:12px;
+  border:none;
+  background:var(--accent);
+  color:#111;
+  font-weight:700;
+  cursor:pointer;
+  transition:0.3s;
+  box-shadow:none; /* removido neon */
+}
+button:hover{
+  background:#00e5ff;
+  box-shadow:none; /* removido neon */
+}
+
+.link{color:var(--accent);cursor:pointer;text-decoration:underline;font-weight:600}
+.msg{margin-top:10px;font-size:0.95rem}
+
+.logo{
+  display:flex;
+  align-items:center;
+  gap:12px;
+  margin-bottom:15px;
+}
+.logo-icon{
+  width:60px;
+  height:60px;
+  border-radius:12px;
+  background:var(--accent);
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  color:#111;
+  font-weight:800;
+  font-size:1.2rem;
+  box-shadow:none; /* removido neon */
+}
+
+/* Botão flutuante WhatsApp */
+.whatsapp-btn{
+  position:fixed;
+  bottom:25px;
+  right:25px;
+  width:60px;
+  height:60px;
+  border-radius:50%;
+  background:var(--whatsapp);
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  box-shadow:0 6px 20px rgba(0,0,0,0.4);
+  cursor:pointer;
+  transition:0.3s;
+  z-index:2;
+}
+.whatsapp-btn:hover{transform:scale(1.1);}
+
+@media (max-width:480px){ 
+  .wrap{padding:8px} 
+  .card{padding:20px 15px;}
+  .logo-icon{width:50px;height:50px;font-size:1rem;}
+}
+</style>
+</head>
+<body>
+
+<canvas id="bgCanvas"></canvas>
+
+<div class="wrap">
+  <div class="card">
+    <div class="logo">
+      <div class="logo-icon">BC</div>
+      <div>
+        <h1>Binaryclub</h1>
+        <p class="small">Faça login ou crie sua conta no maior club de trader do Brasil</p>
+      </div>
+    </div>
+
+    <!-- LOGIN -->
+    <div id="loginView">
+      <label for="loginUser">Usuário</label>
+      <input id="loginUser" type="text" placeholder="Seu usuário" autocomplete="username">
+
+      <label for="loginPass">Senha</label>
+      <input id="loginPass" type="password" placeholder="Senha" autocomplete="current-password">
+
+      <button id="btnLogin">Entrar</button>
+
+      <div class="msg" id="loginMsg"></div>
+
+      <div style="margin-top:12px;display:flex;justify-content:space-between;align-items:center">
+        <span class="small">Não tem conta?</span>
+        <a id="showRegister" class="link">Criar nova conta</a>
+      </div>
+    </div>
+
+    <!-- REGISTER -->
+    <div id="registerView" style="display:none">
+      <label for="regUser">Escolha um usuário</label>
+      <input id="regUser" type="text" placeholder="Ex: joao123">
+
+      <label for="regPass">Escolha uma senha</label>
+      <input id="regPass" type="password" placeholder="Sua senha">
+
+      <label for="regPass2">Repita a senha</label>
+      <input id="regPass2" type="password" placeholder="Repita a senha">
+
+      <button id="btnRegister">Criar conta</button>
+
+      <div class="msg" id="regMsg"></div>
+
+      <div style="margin-top:12px;display:flex;justify-content:space-between;align-items:center">
+        <span class="small">Já tem conta?</span>
+        <a id="showLogin" class="link">Entrar</a>
+      </div>
+    </div>
+  </div>
+</div>
+
+<a href="https://wa.me/5522997301385" target="_blank" class="whatsapp-btn">
+  <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" alt="WhatsApp" width="32" height="32">
+</a>
+
+<script>
+// Mantive todo o JS original sem alterações
+/* LOGIN REGISTRATION */
+const CONFIG = { redirectURL: "https://eusouarthurmartins.github.io/Estrategia-OTC/" };
+const STORAGE_KEY = "binaryclub_users_v1";
+
+function loadUsers(){ try{ const raw = localStorage.getItem(STORAGE_KEY); return raw ? JSON.parse(raw) : []; } catch(e){ return []; } }
+function saveUsers(users){ localStorage.setItem(STORAGE_KEY, JSON.stringify(users)); }
+
+async function hashPassword(password){
+  const enc = new TextEncoder();
+  const data = enc.encode(password);
+  const hash = await crypto.subtle.digest('SHA-256', data);
+  return Array.from(new Uint8Array(hash)).map(b=>b.toString(16).padStart(2,'0')).join('');
+}
+
+function findUser(username){ const users = loadUsers(); return users.find(u=>u.username.toLowerCase()===username.toLowerCase()); }
+
+document.addEventListener('DOMContentLoaded', ()=> {
+  const loginView = document.getElementById('loginView');
+  const registerView = document.getElementById('registerView');
+  const showRegister = document.getElementById('showRegister');
+  const showLogin = document.getElementById('showLogin');
+  const btnRegister = document.getElementById('btnRegister');
+  const btnLogin = document.getElementById('btnLogin');
+  const regMsg = document.getElementById('regMsg');
+  const loginMsg = document.getElementById('loginMsg');
+
+  showRegister.addEventListener('click', ()=> { loginMsg.textContent=''; regMsg.textContent=''; loginView.style.display='none'; registerView.style.display='block'; });
+  showLogin.addEventListener('click', ()=> { loginMsg.textContent=''; regMsg.textContent=''; registerView.style.display='none'; loginView.style.display='block'; });
+
+  btnRegister.addEventListener('click', async ()=>{
+    const username = document.getElementById('regUser').value.trim();
+    const pass = document.getElementById('regPass').value;
+    const pass2 = document.getElementById('regPass2').value;
+    if(!username || !pass){ regMsg.style.color='#ff6b6b'; regMsg.textContent='Preencha usuário e senha.'; return; }
+    if(pass !== pass2){ regMsg.style.color='#ff6b6b'; regMsg.textContent='As senhas não conferem.'; return; }
+    if(findUser(username)){ regMsg.style.color='#ff6b6b'; regMsg.textContent='Usuário já existe.'; return; }
+    regMsg.style.color = '#84ff8a'; regMsg.textContent = 'Criando conta...';
+    const hashed = await hashPassword(pass);
+    const users = loadUsers();
+    users.push({ username, passwordHash: hashed, createdAt: new Date().toISOString() });
+    saveUsers(users);
+    regMsg.style.color = '#84ff8a'; regMsg.textContent = 'Conta criada! Agora faça login.';
+    document.getElementById('regUser').value=''; document.getElementById('regPass').value=''; document.getElementById('regPass2').value='';
+    setTimeout(()=> { registerView.style.display='none'; loginView.style.display='block'; }, 800);
+  });
+
+  btnLogin.addEventListener('click', async ()=>{
+    const username = document.getElementById('loginUser').value.trim();
+    const pass = document.getElementById('loginPass').value;
+    if(!username || !pass){ loginMsg.style.color='#ff6b6b'; loginMsg.textContent='Preencha usuário e senha.'; return; }
+    const u = findUser(username);
+    if(!u){ loginMsg.style.color='#ff6b6b'; loginMsg.textContent='Usuário não encontrado.'; return; }
+    loginMsg.style.color = '#84ff8a'; loginMsg.textContent = 'Você entrou com sucesso!';
+    const hashed = await hashPassword(pass);
+    if(hashed !== u.passwordHash){ loginMsg.style.color='#ff6b6b'; loginMsg.textContent='Senha incorreta.'; return; }
+    setTimeout(()=> { window.location.href = CONFIG.redirectURL; }, 700);
+  });
+});
+
+/* CANVAS CANDLES REALISTAS */
+const canvas = document.getElementById('bgCanvas');
+const ctx = canvas.getContext('2d');
+canvas.width = window.innerWidth;
+canvas.height = window.innerHeight;
+
+const candles = [];
+for(let i=0;i<60;i++){
+  candles.push({
+    x: Math.random()*canvas.width,
+    y: Math.random()*canvas.height,
+    w: 6 + Math.random()*4,
+    h: 30 + Math.random()*50,
+    wickTop: 10 + Math.random()*15,
+    wickBottom: 10 + Math.random()*15,
+    color: Math.random()>0.5?'#00FFFF':'#FF5555',
+    speed: 0.2 + Math.random()*0.5
+  });
+}
+
+function drawCandles(){
+  ctx.clearRect(0,0,canvas.width,canvas.height);
+  candles.forEach(c=>{
+    ctx.fillStyle=c.color;
+    // corpo
+    ctx.fillRect(c.x,c.y,c.w,c.h);
+    // wick
+    ctx.fillRect(c.x+c.w/2, c.y-c.w/2, 1, c.w/2 + c.w/2 - c.w/4);
+    ctx.fillRect(c.x+c.w/2, c.y+c.h, 1, c.w/2);
+    c.y -= c.speed;
+    if(c.y + c.h + c.w < 0) c.y = canvas.height + Math.random()*50;
+  });
+  requestAnimationFrame(drawCandles);
+}
+
+drawCandles();
+
+window.addEventListener('resize', ()=>{
+  canvas.width = window.innerWidth;
+  canvas.height = window.innerHeight;
+});
+</script>
+</body>
+</html>
