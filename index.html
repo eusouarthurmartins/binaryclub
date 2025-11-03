@@ -1,120 +1,111 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Trader Club - Aulas Gratuitas e Produtos</title>
-<style>
-  body{margin:0;font-family:Arial,sans-serif;background:#0b0b0f;color:#fff;}
-  a{text-decoration:none;color:#00ffff;}
-  .hero{background:url('https://i.imgur.com/8z3u9qk.jpg') center/cover no-repeat; text-align:center; padding:80px 20px;}
-  .hero h1{font-size:3rem;margin:0 0 10px;color:#fff;text-shadow:0 0 10px #000;}
-  .hero p{font-size:1.5rem;margin-bottom:20px;}
-  .btn{display:inline-block;padding:15px 30px;background:#00ffff;color:#000;font-weight:bold;border-radius:10px;transition:0.3s;}
-  .btn:hover{background:#00cfcf;color:#fff;transform:scale(1.05);}
-  
-  section{padding:60px 20px;}
-  h2{font-size:2rem;margin-bottom:30px;text-align:center;color:#ffd700;}
-  
-  .videos{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:20px;justify-items:center;}
-  iframe{width:100%;height:200px;border:none;border-radius:10px;}
-  
-  .produtos{display:flex;flex-wrap:wrap;gap:20px;justify-content:center;}
-  .card{background:#111;border-radius:15px;padding:20px;width:300px;text-align:center;box-shadow:0 0 15px #00ffff;}
-  .card h3{color:#00ffff;margin-bottom:10px;}
-  .card p{margin-bottom:15px;}
-  
-  .prints{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:20px;justify-items:center;}
-  .prints img{width:100%;border-radius:10px;box-shadow:0 0 15px #ffd700;}
-  
-  .fluxo table{width:100%;max-width:800px;margin:0 auto;border-collapse:collapse;}
-  .fluxo th, .fluxo td{border:1px solid #444;padding:10px;text-align:center;}
-  .fluxo th{background:#222;}
-  .fluxo td{background:#111;}
-  
-  footer{text-align:center;padding:40px 20px;background:#000;color:#ffd700;}
-</style>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Binary Club — Aprenda e Lucre</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&display=swap" rel="stylesheet">
+  <style>
+    html { scroll-behavior: smooth; }
+    body { font-family: 'Montserrat', sans-serif; }
+  </style>
 </head>
-<body>
+<body class="bg-gradient-to-b from-gray-900 via-black to-gray-950 text-white">
 
-<!-- Hero -->
-<section class="hero">
-  <h1>Aprenda a Operar e Lucrar no Mercado OTC</h1>
-  <p>Comece hoje mesmo com aulas gratuitas e veja como é possível lucrar todos os dias!</p>
-  <a href="#aulas" class="btn">Acessar Aulas Grátis</a>
-</section>
-
-<!-- Aulas Gratuitas -->
-<section id="aulas">
-  <h2>Aulas Gratuitas</h2>
-  <div class="videos">
-    <iframe src="https://www.youtube.com/embed/VIDEO_ID1" allowfullscreen></iframe>
-    <iframe src="https://www.youtube.com/embed/VIDEO_ID2" allowfullscreen></iframe>
-    <iframe src="https://www.youtube.com/embed/VIDEO_ID3" allowfullscreen></iframe>
-  </div>
-</section>
-
-<!-- Produtos Pagos -->
-<section id="produtos">
-  <h2>Produtos Pagos</h2>
-  <div class="produtos">
-    <div class="card">
-      <h3>Estratégia OTC</h3>
-      <p>Aprenda a operar com minha estratégia exclusiva. Mais barato que um personal trainer!</p>
-      <p><strong>R$ 297,00</strong></p>
-      <a href="LINK_DE_COMPRA" class="btn">Comprar Agora</a>
+  <!-- Hero -->
+  <section id="hero" class="relative h-[60vh] md:h-[70vh] flex flex-col items-center justify-center text-center px-6"
+           style="background-image: linear-gradient(to bottom, rgba(0,0,0,0) 70%, #000 100%), url('assets/imagem-oficial.jpg');
+                  background-size: cover;
+                  background-position: center;
+                  background-repeat: no-repeat;">
+    <h1 class="text-5xl md:text-6xl font-bold text-cyan-400 mb-4 animate-pulse">Binary Club</h1>
+    <p class="text-lg md:text-2xl max-w-3xl text-gray-300 mb-6">
+      Acesso às melhores estratégias em OTC e aulas gratuitas de opções binárias para você começar a lucrar.
+    </p>
+    <div class="flex gap-4">
+      <a href="#aulas" class="px-8 py-3 bg-cyan-500 hover:bg-cyan-600 text-black font-bold rounded-full transition-all shadow-xl">Aulas Grátis</a>
+      <a href="#inscricao" class="px-8 py-3 bg-yellow-500 hover:bg-yellow-600 text-black font-bold rounded-full transition-all shadow-xl">Quero a Estratégia</a>
     </div>
-  </div>
-</section>
+  </section>
 
-<!-- Prints / Prova Social -->
-<section id="prints">
-  <h2>Resultados de Alunos</h2>
-  <div class="prints">
-    <img src="https://i.imgur.com/print1.jpg" alt="Print de resultado">
-    <img src="https://i.imgur.com/print2.jpg" alt="Print de resultado">
-    <img src="https://i.imgur.com/print3.jpg" alt="Print de resultado">
-  </div>
-  <p style="text-align:center;margin-top:20px;">
-    Entre no grupo VIP do WhatsApp e receba <strong>uma live por dia</strong>! Mensalidade: R$ 99,99
-  </p>
-  <div style="text-align:center;">
-    <a href="LINK_DO_WHATSAPP" class="btn">Entrar no Grupo VIP</a>
-  </div>
-</section>
+  <!-- Aulas Gratuitas -->
+  <section id="aulas" class="py-20 px-6 bg-black/50 backdrop-blur-lg">
+    <div class="max-w-6xl mx-auto text-center">
+      <h2 class="text-4xl font-bold text-cyan-400 mb-12">Aulas Gratuitas do Binary Club</h2>
+      <div class="grid md:grid-cols-2 gap-8">
+        <!-- Video 1 -->
+        <div class="bg-black/60 p-4 rounded-2xl shadow-lg">
+          <iframe class="w-full h-64 rounded-lg" src="https://www.youtube.com/embed/SEU_VIDEO_1" title="Aula 1" frameborder="0" allowfullscreen></iframe>
+          <h3 class="text-xl font-bold mt-4">Aula 1: Introdução ao OTC</h3>
+        </div>
+        <!-- Video 2 -->
+        <div class="bg-black/60 p-4 rounded-2xl shadow-lg">
+          <iframe class="w-full h-64 rounded-lg" src="https://www.youtube.com/embed/SEU_VIDEO_2" title="Aula 2" frameborder="0" allowfullscreen></iframe>
+          <h3 class="text-xl font-bold mt-4">Aula 2: Estratégia Básica de Lucro</h3>
+        </div>
+      </div>
+    </div>
+  </section>
 
-<!-- Fluxo de Caixa -->
-<section class="fluxo">
-  <h2>Fluxo de Caixa do Trader</h2>
-  <table>
-    <tr>
-      <th>Data</th>
-      <th>Ganhos</th>
-      <th>Perdas</th>
-      <th>Stop</th>
-      <th>Resultado Líquido</th>
-    </tr>
-    <tr>
-      <td>03/11/2025</td>
-      <td>R$ 450,00</td>
-      <td>R$ 120,00</td>
-      <td>R$ 50,00</td>
-      <td>R$ 280,00</td>
-    </tr>
-    <tr>
-      <td>04/11/2025</td>
-      <td>R$ 600,00</td>
-      <td>R$ 200,00</td>
-      <td>R$ 100,00</td>
-      <td>R$ 300,00</td>
-    </tr>
-  </table>
-</section>
+  <!-- Benefícios do Produto -->
+  <section class="py-20 px-6 bg-black/50 backdrop-blur-lg">
+    <div class="max-w-5xl mx-auto grid md:grid-cols-3 gap-10 text-center">
+      <div>
+        <h3 class="text-xl text-cyan-400 font-semibold mb-2">Fácil de Aplicar</h3>
+        <p class="text-gray-300">Mesmo sem experiência, você consegue operar e lucrar usando nossa estratégia.</p>
+      </div>
+      <div>
+        <h3 class="text-xl text-cyan-400 font-semibold mb-2">Vantagem Desleal</h3>
+        <p class="text-gray-300">Enquanto outros tentam adivinhar, você entra com precisão e sai no lucro.</p>
+      </div>
+      <div>
+        <h3 class="text-xl text-cyan-400 font-semibold mb-2">Consistência</h3>
+        <p class="text-gray-300">Use a estratégia em diferentes ativos, garantindo lucros consistentes.</p>
+      </div>
+    </div>
+  </section>
 
-<!-- Footer -->
-<footer>
-  &copy; 2025 Trader Club - Todos os direitos reservados
-</footer>
+  <!-- Oferta Estratégia em OTC -->
+  <section id="inscricao" class="py-20 px-6 bg-gradient-to-t from-black via-gray-900 to-black backdrop-blur-sm">
+    <div class="max-w-4xl mx-auto text-center text-white">
+      <h2 class="text-4xl font-extrabold text-cyan-400 mb-4">🔥 Estratégia em OTC 🔥</h2>
+      <p class="text-xl text-gray-300 mb-6">Aprenda a estratégia que separa você dos grandes players!</p>
+
+      <h3 class="text-5xl font-extrabold text-cyan-400 mb-6 animate-pulse drop-shadow-lg">⚡ Apenas R$297 ⚡</h3>
+      <a href="https://pay.kiwify.com.br/LNlQvJs" target="_blank" class="inline-block px-10 py-4 bg-gradient-to-r from-cyan-400 to-cyan-600 text-black font-bold rounded-full text-xl hover:scale-105 transition-transform duration-300 shadow-lg animate-pulse">
+        QUERO APRENDER AGORA
+      </a>
+    </div>
+  </section>
+
+  <!-- Grupo do WhatsApp -->
+  <section class="py-20 px-6 bg-black/60 backdrop-blur-lg">
+    <div class="max-w-4xl mx-auto text-center text-white">
+      <h2 class="text-4xl font-bold text-yellow-400 mb-6">💬 Grupo VIP do Binary Club</h2>
+      <p class="text-xl text-gray-300 mb-6">Participe das lives diárias comigo, operando juntos e aprendendo estratégias que realmente funcionam.</p>
+      <p class="text-2xl font-bold text-white mb-6">Por apenas <span class="text-yellow-400">R$99,99/mês</span> — menos que um personal trainer!</p>
+      <a href="https://wa.me/5522997301385?text=Quero%20entrar%20no%20grupo%20VIP%20do%20Binary%20Club" target="_blank" class="inline-block px-10 py-4 bg-yellow-500 hover:bg-yellow-600 text-black font-bold rounded-full text-xl shadow-lg animate-pulse">
+        ENTRAR NO GRUPO
+      </a>
+    </div>
+  </section>
+
+  <!-- Mentor -->
+  <section class="py-20 px-6 bg-black/70 backdrop-blur-lg">
+    <div class="max-w-3xl mx-auto text-center text-white">
+      <img src="assets/suafoto.jpg" alt="Foto do Mentor" class="w-32 h-32 rounded-full mx-auto mb-6 object-cover shadow-lg">
+      <h2 class="text-3xl font-bold text-cyan-400 mb-4">Arthur Martins</h2>
+      <p class="text-gray-300 mb-4">Especialista em opções binárias e OTC, faturando 7 dígitos online.</p>
+      <p class="text-sm text-gray-400">+1.400 alunos transformados • +10k inscritos no YouTube • +20k seguidores no Instagram</p>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="py-10 px-6 text-center text-sm text-gray-500 bg-black/60 backdrop-blur">
+    <p>Política de Privacidade | Termos de Uso</p>
+    <p>© Binary Club – Todos os Direitos Reservados</p>
+  </footer>
 
 </body>
 </html>
